@@ -1,16 +1,16 @@
 #include <iostream>
-#include <vector>
 #include <unordered_set>
+#include <vector>
 using namespace std;
 
 class Solution {
-public:
-    vector<int> twoSum(vector<int>& nums, int target) {
+  public:
+    vector<int> twoSum(vector<int> &nums, int target) {
         vector<int> ans;
         unordered_set<int> s(nums.begin(), nums.end());
-        for (int i = 0; i < nums.size(); ++ i) {
+        for (int i = 0; i < nums.size(); ++i) {
             if (s.find(target - nums[i]) != s.end()) {
-                for (int j = 0; j < nums.size(); ++ j) {
+                for (int j = 0; j < nums.size(); ++j) {
                     if (i == j) {
                         continue;
                     }
@@ -25,7 +25,6 @@ public:
         return ans;
     }
 };
-
 
 int main() {
     Solution s;

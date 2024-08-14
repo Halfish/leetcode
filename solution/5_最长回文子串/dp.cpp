@@ -3,9 +3,9 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     bool isPalindrome(string s) {
-        for (int i = 0; i < s.size() / 2; ++ i) {
+        for (int i = 0; i < s.size() / 2; ++i) {
             if (s[i] != s[s.size() - i - 1]) {
                 return false;
             }
@@ -13,9 +13,9 @@ public:
         return true;
     }
 
-    void print(int** dp, int len) {
-        for (int i = 0; i < len; ++ i) {
-            for (int j = 0; j < len; ++ j) {
+    void print(int **dp, int len) {
+        for (int i = 0; i < len; ++i) {
+            for (int j = 0; j < len; ++j) {
                 cout << dp[i][j] << " ";
             }
             cout << endl;
@@ -28,8 +28,8 @@ public:
         memset(dp, 0, sizeof(dp));
         dp[0][0] = 1;
         dp[s.size() - 1][s.size() - 1] = 1;
-        for (int i = s.size() - 2; i >= 0; -- i) {
-            for (int j = 1; j < s.size(); ++ j) {
+        for (int i = s.size() - 2; i >= 0; --i) {
+            for (int j = 1; j < s.size(); ++j) {
                 if (i > j) {
                     continue;
                 } else if (j == i) {
@@ -42,11 +42,11 @@ public:
 
         string ans;
         int max_len = 0;
-        for (int i = 0; i < s.size(); ++ i) {
-            for (int j = 0; j < s.size(); ++ j) {
+        for (int i = 0; i < s.size(); ++i) {
+            for (int j = 0; j < s.size(); ++j) {
                 if (dp[i][j] > max_len) {
                     max_len = dp[i][j];
-                    ans = s.substr(i , max_len);
+                    ans = s.substr(i, max_len);
                 }
                 cout << dp[i][j] << " ";
             }

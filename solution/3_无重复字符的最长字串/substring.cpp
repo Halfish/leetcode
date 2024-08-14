@@ -2,16 +2,15 @@
 #include <unordered_set>
 using namespace std;
 
-
 class Solution {
-public:
+  public:
     int lengthOfLongestSubstring(string s) {
         int max_len = 0;
         unordered_set<char> set;
         int i = 0;
         while (i < s.length()) {
             set.clear();
-            for (int j = i; j < s.length(); ++ j) {
+            for (int j = i; j < s.length(); ++j) {
                 if (set.find(s[j]) == set.end()) {
                     set.insert(s[j]);
                     if (j - i + 1 > max_len) {
@@ -21,8 +20,8 @@ public:
                         return max_len;
                     }
                     continue;
-                } 
-                for (int k = i; k < j; ++ k) {
+                }
+                for (int k = i; k < j; ++k) {
                     if (s[k] == s[j]) {
                         i = k + 1;
                         break;
@@ -34,7 +33,6 @@ public:
         return max_len;
     }
 };
-
 
 int main() {
     Solution s;

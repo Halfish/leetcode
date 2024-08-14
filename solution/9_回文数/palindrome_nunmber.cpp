@@ -2,7 +2,7 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     bool isPalindrome(int x) {
         if (x < 0) {
             return false;
@@ -12,7 +12,7 @@ public:
             s.push_back(x % 10 + '0');
             x = x / 10;
         }
-        for (int i = 0; i < s.size() / 2; ++ i) {
+        for (int i = 0; i < s.size() / 2; ++i) {
             if (s[i] != s[s.size() - i - 1]) {
                 return false;
             }
@@ -20,7 +20,6 @@ public:
         return true;
     }
 };
-
 
 int main() {
     Solution s;

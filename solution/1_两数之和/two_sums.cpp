@@ -3,15 +3,16 @@
 using namespace std;
 
 class Solution {
-public:
-    vector<int> twoSum(vector<int>& nums, int target) {
+  public:
+    vector<int> twoSum(vector<int> &nums, int target) {
         vector<int> original_nums(nums);
 
         // 1. Find Answer
         sort(nums.begin(), nums.end());
         int index = -1;
         for (size_t i = 0; i < nums.size(); ++i) {
-            if (findNumber(nums, i + 1, nums.size() - 1, target - nums[i]) > 0) {
+            if (findNumber(nums, i + 1, nums.size() - 1, target - nums[i]) >
+                0) {
                 index = i;
                 break;
             }
@@ -25,7 +26,7 @@ public:
                     continue;
                 }
                 if (original_nums[i] == target - nums[index]) {
-                    ans.push_back(i); 
+                    ans.push_back(i);
                 }
                 if (ans.size() >= 2) {
                     break;
@@ -36,7 +37,7 @@ public:
     }
 
     // 二分法，返回 index
-    int findNumber(vector<int>& nums, int begin, int end, int number) {
+    int findNumber(vector<int> &nums, int begin, int end, int number) {
         if (begin < 0 || end >= nums.size() || begin > end) {
             return -1;
         }
@@ -52,7 +53,6 @@ public:
         return findNumber(nums, middle + 1, end, number);
     }
 };
-
 
 int main() {
     Solution s;
