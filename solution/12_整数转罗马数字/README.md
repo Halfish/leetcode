@@ -2,8 +2,8 @@
 
 如：
 - `3 -> III`
-- `9 -> LVIII`
-- `3794 -> MMMDCCXLIX`
+- `58 -> LVIII`
+- `3749 -> MMMDCCXLIX`
 - `1994 -> MCMXCIV`
 
 ## 思路
