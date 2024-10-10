@@ -3,6 +3,7 @@
 using namespace std;
 
 void swap(vector<int> &v, int i, int j) {
+    cout << "swap " << i << ", " << j << endl;
     if (i < 0 || j >= v.size() || i == j) {
         return;
     }
@@ -20,10 +21,10 @@ void quick_sort(vector<int> &v, int start, int end) {
     }
 
     int pivot = v[start]; // 选取第一个元素作为基准
-    int i = start;        // i 始终放小于基准的元素
+    int i = start;    // i 始终放小于基准的元素
 
     // 找到一个小于基准的元素，将其放到 i 的位置
-    for (int j = i; j <= end; ++j) {
+    for (int j = i + 1; j <= end; ++j) {
         if (v[j] < pivot) {
             i++;
             swap(v, i, j);
