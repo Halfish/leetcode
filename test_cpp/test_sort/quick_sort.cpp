@@ -36,9 +36,40 @@ void quick_sort(vector<int> &v, int start, int end) {
     quick_sort(v, i + 1, end);
 }
 
+/*
+ * 自己实现的版本，输出结果是升序排列
+ */
+void quick_sort_2(vector<int>& nums, int start, int end) {
+    if (start >= end) {
+        return;
+    }
+    int pivot = nums[end];
+    int i = start;
+    int j = end;
+    while (i < j) {
+        if (nums[i] <= pivot) {
+            // 在左边找比 pivot 大的数字
+            i ++;
+            continue;
+        }
+        if (nums[j] >= pivot) {
+            // 在右边找到比 pivot 小的数字
+            j --;
+            continue;
+        }
+        swap(nums, i, j);
+    }
+    // i 位置比 pivot 大，或者 i == end
+    swap(nums, i, end);
+
+    quick_sort_2(nums, start, i - 1);
+    quick_sort_2(nums, i + 1, end);
+}
+
 int main() {
-    vector<int> v = {2, 3, 5, 3, 4, 2, 1, 8, 9, 7};
-    quick_sort(v, 0, v.size() - 1);
+    //vector<int> v = {2, 3, 5, 3, 4, 2, 1, 8, 9, 7};
+    vector<int> v = {1, 2, 3, 4, 5, 1, 1, 1,1,1,1,1, -5, -4, -3, -2, -1};
+    quick_sort_2(v, 0, v.size() - 1);
     for (int i = 0; i < v.size(); ++i) {
         cout << v[i] << " ";
     }
