@@ -56,7 +56,7 @@ int main() {
     print(l1);
     print(l2);
     Solution s;
-    ListNode *l3 = s.mergeList(l1, l2);
+    ListNode *l3 = s.mergeTwoLists(l1, l2);
     print(l3);
     return 0;
 }
