@@ -13,21 +13,15 @@ struct ListNode {
 
 
 ListNode* reverseList(ListNode* head) {
-    // TODO 代码可以简化
-    if (!head) {
-        return head;
-    }
     ListNode* curr = head;
-    ListNode* next = head->next;
-    head->next = nullptr;
-    ListNode* next2;
-    while (next) {
-        next2 = next->next;
-        next->next = curr;
-        curr = next;
-        next = next2;
+    ListNode* prev = nullptr;
+    while (curr) {
+        ListNode* tmp = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = tmp;
     }
-    return curr;
+    return prev;
 }
 
 
