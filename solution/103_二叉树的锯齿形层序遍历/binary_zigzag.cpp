@@ -1,7 +1,4 @@
-#include <deque>
 #include <iostream>
-#include <queue>
-#include <stack>
 #include <vector>
 
 #include "../header/tree.h"
