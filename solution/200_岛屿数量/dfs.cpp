@@ -45,8 +45,8 @@ int main() {
         {'0', '0', '1', '0', '0'},
         {'0', '0', '0', '1', '1'}
     };
-    cout << numIsLands(grid) << endl;
-    cout << numIsLands(grid2) << endl;
+    cout << numIslands(grid) << endl;
+    cout << numIslands(grid2) << endl;
 
     return 0;
 }
