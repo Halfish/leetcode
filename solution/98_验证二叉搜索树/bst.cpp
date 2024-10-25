@@ -2,35 +2,33 @@
 #include <iostream>
 #include <vector>
 
-bool dfs(TreeNode *root, vector<int> &v) {
+/*
+ * 中序遍历的结果一定是有序的
+ */
+void dfs(TreeNode *root, vector<int> &v) {
     if (!root) {
-        return true;
+        return;
     }
+    dfs(root->left, v);
     v.push_back(root->val);
-    int count = v.size();
-    bool left = dfs(root->left, v);
-    for (int i = count; i < v.size(); ++i) {
-        if (v[i] >= root->val) {
-            return false;
-        }
-    }
-    count = v.size();
-    bool right = dfs(root->right, v);
-    for (int i = count; i < v.size(); ++i) {
-        if (v[i] <= root->val) {
-            return false;
-        }
-    }
-    return left && right;
+    dfs(root->right, v);
 }
 
 bool isValidBST(TreeNode *root) {
     vector<int> v;
-    return dfs(root, v);
+    dfs(root, v);
+    for (int i = 1; i < v.size(); ++i) {
+        if (v[i - 1] >= v[i]) {
+            return false;
+        }
+    }
+    return true;
 }
+
 
 int main() {
     vector<int> v = {5, 1, 4, -1, -1, 3, 6};
+    //vector<int> v = {2, 1, 3};
     TreeNode *root = buildTree(v);
     cout << isValidBST(root) << endl;
     return 0;
