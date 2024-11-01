@@ -35,3 +35,13 @@ TreeNode* buildTree(vector<int> &v) {
     }
     return root;
 }
+
+void print_tree(TreeNode* root) {
+    if (!root) {
+        return;
+    }
+    cout << root->val << " ";
+    print_tree(root->left);
+    print_tree(root->right);
+}
+
